@@ -6,7 +6,7 @@ import my.lab.depositHelper.entry.query.Query;
 
 public class Result {
 
-    public static final int BETWEEN_COLUMS = 40;
+    public static final int BETWEEN_COLUMNS = 40;
     static StringBuilder spaces;
     private String identification;
     private double profit;
@@ -69,7 +69,7 @@ public class Result {
     @Override
     public String toString() {
         spaces=new StringBuilder();
-        for (int i = BETWEEN_COLUMS; i > getIdentification().length(); i--) {
+        for (int i = BETWEEN_COLUMNS; i > getIdentification().length(); i--) {
             spaces.append(" ");
         }
         return String.format("%s %f\n", getIdentification()+spaces.toString(), getProfit());
