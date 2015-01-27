@@ -6,6 +6,7 @@ import my.lab.depositHelper.entry.query.Query;
 
 public class Result {
 
+    public static final int BETWEEN_COLUMS = 40;
     static StringBuilder spaces;
     private String identification;
     private double profit;
@@ -21,22 +22,21 @@ public class Result {
     }
 
     private void setAmount(Query query, Deposit deposit) {
-        final Currency depositCurrency=deposit.getCurrency();
 
-        switch (depositCurrency.name()) {
-            case("RUB"):
+        switch (deposit.getCurrency()) {
+            case RUB:
                 setAmount(query.getAmount());
                 break;
-            case("USD"):
+            case USD:
                 setAmount(toUSD(query));
                 break;
-            case("EUR"):
+            case EUR:
                 setAmount(toEUR(query));
                 break;
             //default:
                 //throw new UnknownCurrency();
         }
-        setProfitCurrency(depositCurrency);
+        setProfitCurrency(deposit.getCurrency());
     }//WTF IS IT!!!!??? KILL ME PLEASE...
 
     private double toUSD(Query query) {
@@ -49,10 +49,10 @@ public class Result {
     }
 
     private double convertToRUB(Query query) {
-        switch (String.valueOf(query.getCurrency())) {
-            case ("USD"):
+        switch (query.getCurrency()) {
+            case USD:
                 return query.getAmount()*query.getCurrentDollar();
-            case ("EUR"):
+            case EUR:
                 return query.getAmount()*query.getCurrentEuro();
             default:
                 return query.getAmount();
@@ -69,10 +69,10 @@ public class Result {
     @Override
     public String toString() {
         spaces=new StringBuilder();
-        for (int i = 40; i > getIdentification().length(); i--) {
+        for (int i = BETWEEN_COLUMS; i > getIdentification().length(); i--) {
             spaces.append(" ");
         }
-        return String.format("%s %f", getIdentification()+spaces.toString(), getProfit());
+        return String.format("%s %f\n", getIdentification()+spaces.toString(), getProfit());
     }
 
     public double getAmount() {

@@ -7,7 +7,6 @@ import my.lab.depositHelper.entry.query.Query;
 import my.lab.depositHelper.entry.result.Result;
 import my.lab.depositHelper.query.QueryArray;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ResultsO {
-    private ArrayList<Result> array = new ArrayList<Result>();
+    private ArrayList<Result> array = new ArrayList<>();
 
     public ResultsO(QueryArray queryArray, DepositArray depositArray) {
         for(Deposit deposit: depositArray.getArray()) {
@@ -47,7 +46,7 @@ public class ResultsO {
 
             writeFile.append("Specification                            Profit, RUB\n");
             for(Result writeIt: getArray()) {
-                writeFile.append(writeIt.toString()+"\n");
+                writeFile.append(writeIt.toString());
             }
             writeFile.flush();
 
