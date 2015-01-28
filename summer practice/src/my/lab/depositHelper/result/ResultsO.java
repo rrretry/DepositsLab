@@ -11,30 +11,20 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ResultsO {
     private ArrayList<Result> array = new ArrayList<>();
 
     public ResultsO(QueryArray queryArray, DepositArray depositArray) {
-        for(Deposit deposit: depositArray.getArray()) {
-            for(Query query: queryArray.getArray()) {
-                array.add(new Result(query, deposit));
-            }
-        }
-        array.sort(new Comparator<Result>() {
-            @Override
-            public int compare(Result o1, Result o2) {
-                if( (o1.getProfit() - o2.getProfit()) >= 0) {
-                    if (o1.getProfit() == o2.getProfit()) {
-                        return 0;
-                    }
-                    return -1;
-                }else
-                    return 1;
-            }
 
-        });
+        depositArray.getArray().forEach(deposit ->
+                queryArray.getArray().forEach(query -> array.add(new Result(query,deposit))) );
+        
+        array.sort((r1, r2) -> Double.compare(r2.getProfit(),r1.getProfit()));
     }
 
     public void writeFile(String path)
@@ -48,18 +38,9 @@ public class ResultsO {
             for(Result writeIt: getArray()) {
                 writeFile.append(writeIt.toString());
             }
-            writeFile.flush();
-
+            writeFile.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if(writeFile != null) {
-                try {
-                    writeFile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
