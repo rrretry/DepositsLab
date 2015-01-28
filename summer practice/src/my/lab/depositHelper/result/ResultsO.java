@@ -14,19 +14,17 @@ public class ResultsO {
     private ArrayList<Result> array = new ArrayList<>();
 
     public ResultsO(QueryArray queryArray, DepositArray depositArray) {
-
+        
         depositArray.getArray().forEach(deposit ->
                 queryArray.getArray().forEach(query -> array.add(new Result(query,deposit))) );
-        
-        array.sort((r1, r2) -> Double.compare(r2.getProfit(),r1.getProfit()));
+        array.sort((r1, r2) -> Double.compare(r2.getProfit(), r1.getProfit()));
     }
 
     public void writeFile(String path)
     {
 
-        BufferedWriter writeFile = null;
         try {
-            writeFile = new BufferedWriter(new FileWriter(path));
+            BufferedWriter writeFile = new BufferedWriter(new FileWriter(path));
 
             writeFile.append("Specification                            Profit, RUB\n");
             for(Result writeIt: getArray()) {
