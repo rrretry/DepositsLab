@@ -2,8 +2,6 @@ package my.lab.depositHelper.result;
 
 
 import my.lab.depositHelper.deposit.DepositArray;
-import my.lab.depositHelper.entry.deposit.Deposit;
-import my.lab.depositHelper.entry.query.Query;
 import my.lab.depositHelper.entry.result.Result;
 import my.lab.depositHelper.query.QueryArray;
 
@@ -11,10 +9,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ResultsO {
     private ArrayList<Result> array = new ArrayList<>();
