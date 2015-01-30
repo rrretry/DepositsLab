@@ -1,18 +1,15 @@
 package my.lab.depositHelper.entry.result;
 
-import my.lab.depositHelper.Currency;
+import my.lab.depositHelper.config.R;
 import my.lab.depositHelper.entry.deposit.Deposit;
 import my.lab.depositHelper.entry.query.Query;
 
 public class Result {
-
-    public static final int BETWEEN_COLUMNS = 40;
+    public static final int BETWEEN_COLUMNS = R.Result.BETWEEN_COLUMNS;
     static StringBuilder spaces;
     private String identification;
     private double profit;
     private double amount;
-    private Currency profitCurrency;
-
 
     public Result(Query query, Deposit deposit) {
         setIdentification(String.format("%s:%s using %.2f of %s",
@@ -36,7 +33,6 @@ public class Result {
             //default:
                 //throw new UnknownCurrency();
         }
-        setProfitCurrency(deposit.getCurrency());
     }//WTF IS IT!!!!??? KILL ME PLEASE...
 
     private double toUSD(Query query) {
@@ -85,14 +81,6 @@ public class Result {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    public String getProfitCurrency() {
-        return profitCurrency.name();
-    }
-
-    public void setProfitCurrency(Currency profitCurrency) {
-        this.profitCurrency = profitCurrency;
-    }
-
 
     public String getIdentification() {
         return identification;
@@ -108,6 +96,10 @@ public class Result {
 
     public void setProfit(double profit) {
         this.profit = profit;
+    }
+
+    public int compareProfit(Result other) {
+        return Double.compare(other.getProfit(), this.getProfit());
     }
 
 

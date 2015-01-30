@@ -70,9 +70,7 @@ Specification                            Profit, RUB
 СибБанк:EUR using 10000.00 of RUB        416436.562080
 СибБанк:EUR using 10000.00 of RUB        416436.562080
 СибБанк:EUR using 10000.00 of RUB        416436.562080
-СибБанк:EUR using 10000.00 of RUB        416436.562080
 МММ:RUB using 10800.00 of RUB            334800.000000
-МММ:RUB using 10000.00 of RUB            310000.000000
 МММ:RUB using 10000.00 of RUB            310000.000000
 МММ:RUB using 10000.00 of RUB            310000.000000
 МММ:RUB using 10000.00 of RUB            310000.000000
@@ -160,7 +158,6 @@ Specification                            Profit, RUB
 МосБанк:USD using 10000.00 of RUB        252730.553790
 МосБанк:USD using 10000.00 of RUB        252730.553790
 МосБанк:USD using 10000.00 of RUB        252730.553790
-МосБанк:USD using 10000.00 of RUB        252730.553790
 СибБанк:EUR using 200.00 of USD          130016.880000
 СибБанк:EUR using 200.00 of USD          130016.880000
 СибБанк:EUR using 200.00 of USD          130016.880000
@@ -206,6 +203,10 @@ Specification                            Profit, RUB
 СибБанк:EUR using 200.00 of USD          130016.880000
 СибБанк:EUR using 200.00 of USD          130016.880000
 СибБанк:EUR using 200.00 of USD          130016.880000
+СибБанк:EUR using 200.00 of USD          130016.880000
+СибБанк:EUR using 200.00 of USD          130016.880000
+СибБанк:EUR using 180.00 of EUR          109204.200000
+СибБанк:EUR using 180.00 of EUR          109204.200000
 СибБанк:EUR using 180.00 of EUR          109204.200000
 СибБанк:EUR using 180.00 of EUR          109204.200000
 СибБанк:EUR using 180.00 of EUR          109204.200000
@@ -298,6 +299,10 @@ Specification                            Profit, RUB
 МосБанк:USD using 200.00 of USD          79721.460000
 МосБанк:USD using 200.00 of USD          79721.460000
 МосБанк:USD using 200.00 of USD          79721.460000
+МосБанк:USD using 200.00 of USD          79721.460000
+МосБанк:USD using 200.00 of USD          79721.460000
+МосБанк:USD using 180.00 of EUR          67286.700000
+МосБанк:USD using 180.00 of EUR          67286.700000
 МосБанк:USD using 180.00 of EUR          67286.700000
 МосБанк:USD using 180.00 of EUR          67286.700000
 МосБанк:USD using 180.00 of EUR          67286.700000
@@ -415,10 +420,11 @@ Specification                            Profit, RUB
 Сбербанк:RUB using 10000.00 of RUB       6105.100000
 Сбербанк:RUB using 10000.00 of RUB       6105.100000
 Сбербанк:RUB using 10000.00 of RUB       6105.100000
-Сбербанк:RUB using 10000.00 of RUB       6105.100000
 МММ:RUB using 1890.00 of EUR             5670.000000
 МММ:RUB using 1810.00 of EUR             5430.000000
 Сбербанк:RUB using 18990.00 of EUR       3987.900000
+МММ:RUB using 200.00 of USD              1400.000000
+МММ:RUB using 200.00 of USD              1400.000000
 МММ:RUB using 200.00 of USD              1400.000000
 МММ:RUB using 200.00 of USD              1400.000000
 МММ:RUB using 200.00 of USD              1400.000000
@@ -468,6 +474,8 @@ Specification                            Profit, RUB
 Сбербанк:RUB using 2100.00 of USD        695.100000
 Сбербанк:RUB using 2090.00 of USD        691.790000
 Сбербанк:RUB using 1020.00 of RUB        622.720200
+МММ:RUB using 180.00 of EUR              540.000000
+МММ:RUB using 180.00 of EUR              540.000000
 МММ:RUB using 180.00 of EUR              540.000000
 МММ:RUB using 180.00 of EUR              540.000000
 МММ:RUB using 180.00 of EUR              540.000000
@@ -567,6 +575,10 @@ Specification                            Profit, RUB
 Сбербанк:RUB using 200.00 of USD         66.200000
 Сбербанк:RUB using 200.00 of USD         66.200000
 Сбербанк:RUB using 200.00 of USD         66.200000
+Сбербанк:RUB using 200.00 of USD         66.200000
+Сбербанк:RUB using 200.00 of USD         66.200000
+Сбербанк:RUB using 180.00 of EUR         37.800000
+Сбербанк:RUB using 180.00 of EUR         37.800000
 Сбербанк:RUB using 180.00 of EUR         37.800000
 Сбербанк:RUB using 180.00 of EUR         37.800000
 Сбербанк:RUB using 180.00 of EUR         37.800000

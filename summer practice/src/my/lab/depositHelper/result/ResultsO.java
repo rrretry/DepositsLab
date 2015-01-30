@@ -17,15 +17,13 @@ public class ResultsO {
         
         depositArray.getArray().forEach(deposit ->
                 queryArray.getArray().forEach(query -> array.add(new Result(query,deposit))) );
-        array.sort((r1, r2) -> Double.compare(r2.getProfit(), r1.getProfit()));
+        array.sort(Result::compareProfit);
     }
 
     public void writeFile(String path)
     {
 
-        try {
-            BufferedWriter writeFile = new BufferedWriter(new FileWriter(path));
-
+        try (BufferedWriter writeFile = new BufferedWriter(new FileWriter(path))) {
             writeFile.append("Specification                            Profit, RUB\n");
             for(Result writeIt: getArray()) {
                 writeFile.append(writeIt.toString());

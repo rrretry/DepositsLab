@@ -1,11 +1,12 @@
 package my.lab.depositHelper.entry.query;
 
+import my.lab.depositHelper.config.R;
 import my.lab.depositHelper.entry.Entry;
 import my.lab.depositHelper.exceptions.ParseException;
 import my.lab.depositHelper.exceptions.QueryParseException;
 
 public class Query extends Entry {
-    public static final int NUM_OF_ARGS=7;
+    public static final int NUM_OF_ARGS = R.Query.NUM_OF_ARGS;
 
     private double amount;
     private double year;
@@ -31,7 +32,6 @@ public class Query extends Entry {
                 setExpectedEuro(parsed[6]);
             }else
                 throw new QueryParseException();
-
         }catch (NumberFormatException e) {
             throw new QueryParseException(e.toString());
         }

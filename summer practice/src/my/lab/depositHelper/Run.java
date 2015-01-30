@@ -7,8 +7,7 @@ import my.lab.depositHelper.result.ResultsO;
 
 public class Run {
 
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String[] args) {
         QueryArray queryArray = new QueryArray("/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/query.txt");
         DepositArray depositArray = new DepositArray("/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/deposits.txt");
 
