@@ -1,6 +1,7 @@
 package my.lab.depositHelper.result;
 
 
+import my.lab.depositHelper.Run;
 import my.lab.depositHelper.deposit.DepositArray;
 import my.lab.depositHelper.entry.result.Result;
 import my.lab.depositHelper.query.QueryArray;
@@ -30,7 +31,7 @@ public class ResultsO {
             }
             writeFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Run.logger.error(e);
         }
     }
 

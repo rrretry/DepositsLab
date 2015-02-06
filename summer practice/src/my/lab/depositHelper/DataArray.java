@@ -1,11 +1,11 @@
 package my.lab.depositHelper;
 
+import my.lab.depositHelper.entry.Entry;
 import my.lab.depositHelper.exceptions.ParseException;
-
 import java.io.*;
 import java.util.ArrayList;
 
-public abstract class DataArray<T> {
+public abstract class DataArray<T extends Entry> {
     private ArrayList<T> array = new ArrayList<>();
 
     public DataArray(String path) {
@@ -19,20 +19,12 @@ public abstract class DataArray<T> {
                 try {
                     getArray().add(makeEntry((String) s));
                 } catch (ParseException e) {
-                    System.out.printf("Error input: %s\n", (String) s);
-                    /*
-                    //
-                    // ADD LOGGER PLEASE!!!!!
-                    */
+                    Run.logger.warn(e.getMessage()+" Input: "+s);
                 }
             }
             file.close();
         } catch (IOException e) {
-            System.out.println(e.toString());
-                    /*
-                    //
-                    // ADD LOGGER PLEASE!!!!!
-                    */
+            Run.logger.error(e.getMessage());
         }
     }
 

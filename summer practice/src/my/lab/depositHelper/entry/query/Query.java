@@ -33,14 +33,13 @@ public class Query extends Entry {
             }else
                 throw new QueryParseException();
         }catch (NumberFormatException e) {
-            throw new QueryParseException(e.toString());
+            throw new QueryParseException(e.getMessage());
         }
     }
 
     public double getAmount() {
         return amount;
     }
-//    public double getAmountEUR() {}
 
     public void setAmount(String amount) {
         this.amount = Double.parseDouble(amount);
