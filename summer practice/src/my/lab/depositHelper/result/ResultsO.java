@@ -2,6 +2,7 @@ package my.lab.depositHelper.result;
 
 
 import my.lab.depositHelper.Run;
+import my.lab.depositHelper.config.R;
 import my.lab.depositHelper.deposit.DepositArray;
 import my.lab.depositHelper.entry.result.Result;
 import my.lab.depositHelper.query.QueryArray;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ResultsO {
+    public static final String OUTPUT_HEADER = R.Result.OUTPUT_HEADER;
     private ArrayList<Result> array = new ArrayList<>();
 
     public ResultsO(QueryArray queryArray, DepositArray depositArray) {
@@ -25,7 +27,7 @@ public class ResultsO {
     {
 
         try (BufferedWriter writeFile = new BufferedWriter(new FileWriter(path))) {
-            writeFile.append("Specification                            Profit, RUB\n");
+            writeFile.append(OUTPUT_HEADER);
             for(Result writeIt: getArray()) {
                 writeFile.append(writeIt.toString());
             }

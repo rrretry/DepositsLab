@@ -5,14 +5,14 @@ import my.lab.depositHelper.entry.deposit.Deposit;
 import my.lab.depositHelper.entry.query.Query;
 
 public class Result {
-    public static final int BETWEEN_COLUMNS = R.Result.BETWEEN_COLUMNS;
-    static StringBuilder spaces;
+    public static final String ID_FORMAT = R.Result.ID_FORMAT;
+    public static final String FORMAT = R.Result.FORMAT;
     private String identification;
     private double profit;
     private double amount;
 
     public Result(Query query, Deposit deposit) {
-        setIdentification(String.format("%s:%s using %.2f of %s",
+        setIdentification(String.format(ID_FORMAT,
                 deposit.getBank(), deposit.getCurrency(), query.getAmount(), query.getCurrency()));
         setAmount(query, deposit);
         calcProfit(query, deposit);
@@ -64,11 +64,7 @@ public class Result {
 
     @Override
     public String toString() {
-        spaces=new StringBuilder();
-        for (int i = BETWEEN_COLUMNS; i > getIdentification().length(); i--) {
-            spaces.append(" ");
-        }
-        return String.format("%s %f\n", getIdentification()+spaces.toString(), getProfit());
+        return String.format(FORMAT, getIdentification(), getProfit());
     }
 
     public double getAmount() {

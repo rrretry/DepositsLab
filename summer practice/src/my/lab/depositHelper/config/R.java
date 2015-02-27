@@ -9,7 +9,9 @@ public class R {
         public static final String DEFAULT_SPLIT = ",|[ \f\n\n\t]+";
     }
     public class Result {
-        public static final int BETWEEN_COLUMNS = 40;
+        public static final String ID_FORMAT = "%s:%s using %.2f of %s";
+        public static final String FORMAT = "%-40s %f\n";
+        public static final String OUTPUT_HEADER = "Specification                            Profit, RUB\n";
     }
 
     public class Excepts {
