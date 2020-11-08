@@ -3,20 +3,18 @@ package my.lab.depositHelper;
 import my.lab.depositHelper.deposit.DepositArray;
 import my.lab.depositHelper.query.QueryArray;
 import my.lab.depositHelper.result.ResultsO;
-
+import org.apache.log4j.Logger;
 
 public class Run {
-
-    public static void main(String[] args) throws Exception {
-
-        QueryArray queryArray = new QueryArray("/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/query.txt");
-        DepositArray depositArray = new DepositArray("/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/deposits.txt");
+    public static String root = "/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/";
+    public static final Logger logger=Logger.getRootLogger();
+    public static void main(String[] args) {
+        QueryArray queryArray = new QueryArray(root + "query.txt");
+        DepositArray depositArray = new DepositArray(root+"deposits.txt");
 
         ResultsO results = new ResultsO(queryArray, depositArray);
-
-        results.getArray().forEach(System.out::print);
-
-        results.writeFile("/home/retry/Mine javampf/DepositsLab/summer practice/src/my/lab/depositHelper/Results");
+        results.getArray().forEach(logger::debug);
+        results.writeFile(root+"Results");
     }
 }
 

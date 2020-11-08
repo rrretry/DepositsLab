@@ -1,21 +1,18 @@
 package my.lab.depositHelper.entry.result;
 
-import my.lab.depositHelper.Currency;
+import my.lab.depositHelper.config.R;
 import my.lab.depositHelper.entry.deposit.Deposit;
 import my.lab.depositHelper.entry.query.Query;
 
 public class Result {
-
-    public static final int BETWEEN_COLUMNS = 40;
-    static StringBuilder spaces;
+    public static final String ID_FORMAT = R.Result.ID_FORMAT;
+    public static final String FORMAT = R.Result.FORMAT;
     private String identification;
     private double profit;
     private double amount;
-    private Currency profitCurrency;
-
 
     public Result(Query query, Deposit deposit) {
-        setIdentification(String.format("%s:%s using %.2f of %s",
+        setIdentification(String.format(ID_FORMAT,
                 deposit.getBank(), deposit.getCurrency(), query.getAmount(), query.getCurrency()));
         setAmount(query, deposit);
         calcProfit(query, deposit);
@@ -36,7 +33,6 @@ public class Result {
             //default:
                 //throw new UnknownCurrency();
         }
-        setProfitCurrency(deposit.getCurrency());
     }//WTF IS IT!!!!??? KILL ME PLEASE...
 
     private double toUSD(Query query) {
@@ -68,11 +64,7 @@ public class Result {
 
     @Override
     public String toString() {
-        spaces=new StringBuilder();
-        for (int i = BETWEEN_COLUMNS; i > getIdentification().length(); i--) {
-            spaces.append(" ");
-        }
-        return String.format("%s %f\n", getIdentification()+spaces.toString(), getProfit());
+        return String.format(FORMAT, getIdentification(), getProfit());
     }
 
     public double getAmount() {
@@ -85,14 +77,6 @@ public class Result {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    public String getProfitCurrency() {
-        return profitCurrency.name();
-    }
-
-    public void setProfitCurrency(Currency profitCurrency) {
-        this.profitCurrency = profitCurrency;
-    }
-
 
     public String getIdentification() {
         return identification;
@@ -108,6 +92,10 @@ public class Result {
 
     public void setProfit(double profit) {
         this.profit = profit;
+    }
+
+    public int compareProfit(Result other) {
+        return Double.compare(other.getProfit(), this.getProfit());
     }
 
 

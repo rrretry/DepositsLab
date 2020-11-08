@@ -1,9 +1,9 @@
 package my.lab.depositHelper.result;
 
 
+import my.lab.depositHelper.Run;
+import my.lab.depositHelper.config.R;
 import my.lab.depositHelper.deposit.DepositArray;
-import my.lab.depositHelper.entry.deposit.Deposit;
-import my.lab.depositHelper.entry.query.Query;
 import my.lab.depositHelper.entry.result.Result;
 import my.lab.depositHelper.query.QueryArray;
 
@@ -11,55 +11,29 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class ResultsO {
+    public static final String OUTPUT_HEADER = R.Result.OUTPUT_HEADER;
     private ArrayList<Result> array = new ArrayList<>();
 
     public ResultsO(QueryArray queryArray, DepositArray depositArray) {
-        for(Deposit deposit: depositArray.getArray()) {
-            for(Query query: queryArray.getArray()) {
-                array.add(new Result(query, deposit));
-            }
-        }
-        array.sort(new Comparator<Result>() {
-            @Override
-            public int compare(Result o1, Result o2) {
-                if( (o1.getProfit() - o2.getProfit()) >= 0) {
-                    if (o1.getProfit() == o2.getProfit()) {
-                        return 0;
-                    }
-                    return -1;
-                }else
-                    return 1;
-            }
-
-        });
+        
+        depositArray.getArray().forEach(deposit ->
+                queryArray.getArray().forEach(query -> array.add(new Result(query,deposit))) );
+        array.sort(Result::compareProfit);
     }
 
     public void writeFile(String path)
     {
 
-        BufferedWriter writeFile = null;
-        try {
-            writeFile = new BufferedWriter(new FileWriter(path));
-
-            writeFile.append("Specification                            Profit, RUB\n");
+        try (BufferedWriter writeFile = new BufferedWriter(new FileWriter(path))) {
+            writeFile.append(OUTPUT_HEADER);
             for(Result writeIt: getArray()) {
                 writeFile.append(writeIt.toString());
             }
-            writeFile.flush();
-
+            writeFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if(writeFile != null) {
-                try {
-                    writeFile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            Run.logger.error(e);
         }
     }
 

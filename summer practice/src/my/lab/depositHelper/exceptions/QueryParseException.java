@@ -1,14 +1,11 @@
 package my.lab.depositHelper.exceptions;
 
+import my.lab.depositHelper.config.R;
+
 public class QueryParseException extends ParseException {
 
-    public static final String ERROR_MSG = "Query parse error";
+    public static final String ERROR_MSG = R.Excepts.QUERY_ERROR_MSG;
 
-    /**
-     * Constructs a new exception with {@code null} as its detail message.
-     * The cause is not initialized, and may subsequently be initialized by a
-     * call to {@link #initCause}.
-     */
     public QueryParseException(){
         super(ERROR_MSG);
     }
